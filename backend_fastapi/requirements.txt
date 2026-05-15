@@ -1,0 +1,6 @@
+fastapi
+uvicorn
+spotipy
+requests
+python-dotenv
+itsdangerous

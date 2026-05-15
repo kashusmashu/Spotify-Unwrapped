@@ -1,5 +1,5 @@
 .venv/
-.env
+*.env
 
 __pycache__/
 *.pyc
@@ -8,10 +8,18 @@ __pycache__/
 .spotify_cache
 .cache
 
-frontend/node_modules/
-frontend/dist/
+frontend_react/node_modules/
+frontend_react/dist/
 
 Thumbs.db
 desktop.ini
 
-spotify_auth.py
+spotify_draft.py
+lastfm_draft.py
+spotifyapi.py
+
+#temporarily ignore
+App.jsx
+components
+api
+musicAPI
