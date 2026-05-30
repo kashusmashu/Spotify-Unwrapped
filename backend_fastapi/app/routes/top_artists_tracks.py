@@ -1,20 +1,17 @@
-from fastapi import APIRouter, Header
+from fastapi import APIRouter
 from app.services.spotify import get_top_artists
 from app.services.lastfm import get_top_tracks
 
 router = APIRouter()
 
 @router.get("/top-artists-tracks")
-def top_artists_tracks(authorization: str = Header(None)):
+def top_artists_tracks(time_range: str = "short_term"):
 
-    access_token = authorization.split(" ")[1]
-
-    artists = get_top_artists(access_token, "short_term")
+    artists = get_top_artists(time_range)
 
     results = []
 
     for artist in artists:
-
         top_tracks = get_top_tracks(artist["name"])
         results.append({
             "artist": artist,

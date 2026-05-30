@@ -2,9 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.routes.auth import router as auth_router
-from app.routes.artist_track import router as at_router
-
-
+from app.routes.top_artists_tracks import router as at_router
 
 
 # define web app

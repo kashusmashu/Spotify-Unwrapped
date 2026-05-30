@@ -17,9 +17,3 @@ desktop.ini
 spotify_draft.py
 lastfm_draft.py
 spotifyapi.py
-
-#temporarily ignore
-App.jsx
-components
-api
-musicAPI

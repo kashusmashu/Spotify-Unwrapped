@@ -1,23 +1,22 @@
 from fastapi import APIRouter
-from app.util.spotify_auth import sp_oauth
+from fastapi.responses import RedirectResponse
+from app.dependencies.spotify_auth import sp_oauth
 
 router = APIRouter()
 
-@router.get('/login')
+@router.get("/login")
 def login():
     # return sp auth url, use get_authorize_url from spotipy
     auth_url = sp_oauth.get_authorize_url()
-    
-    return {
-        "auth_url": auth_url
-    }
+
+    # no redirect to url, just return to front end and redirect there
+    return {"url": auth_url}
 
 @router.get("/callback")
 def callback(code: str):
 
-    # return access token to use spotify api
-    token_info = sp_oauth.get_access_token(code)
+    # get and store access token to use spotify api
+    sp_oauth.get_access_token(code)
 
-    return {
-        "access_token": token_info["access_token"]
-    }
+    # redirect back to main page
+    return RedirectResponse(f"http://localhost:5173/")

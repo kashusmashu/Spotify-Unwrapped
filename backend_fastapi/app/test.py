@@ -2,7 +2,7 @@ import requests
 import spotipy
 import json
 from spotipy.oauth2 import SpotifyOAuth
-from core.config import *
+from dependencies.config import *
 
 # get authorization from personal spotify account, get user display name
 sp = spotipy.Spotify(auth_manager=SpotifyOAuth(
